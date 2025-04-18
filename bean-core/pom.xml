@@ -1,45 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bean_core</groupId>
+    <groupId>com.beanchain</groupId>
     <artifactId>bean-core</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    <name>BeanChain Core</name>
+    <description>Core cryptographic utilities and transaction models for the BeanChain blockchain network.</description>
+    <url>https://github.com/NonFasho/BeanCore</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>nonfasho</id>
+            <name>Non Fasho</name>
+            <email>youremail@example.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/NonFasho/BeanCore</url>
+        <connection>scm:git:git://github.com/NonFasho/BeanCore.git</connection>
+        <developerConnection>scm:git:ssh://github.com:NonFasho/BeanCore.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/NonFasho/BeanCore</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
-    <!-- Bouncy Castle Provider -->
-    <dependency>
-    <groupId>org.bouncycastle</groupId>
-    <artifactId>bcprov-jdk15on</artifactId>
-    <version>1.70</version> <!-- Latest stable as of now -->
-    </dependency>
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.3</version>
+        </dependency>
 
-    <!-- Bouncy Castle PKIX/CMS (optional for advanced crypto) -->
-    <dependency>
-    <groupId>org.bouncycastle</groupId>
-    <artifactId>bcpkix-jdk15on</artifactId>
-    <version>1.70</version>
-    </dependency>
-    <!-- Jackson Databind for ObjectMapper -->
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.15.3</version> <!-- or latest stable -->
-    </dependency>
-
-    <!-- Jackson Annotations (optional) -->
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-annotations</artifactId>
-        <version>2.15.3</version>
-    </dependency>
+        <!-- Bouncy Castle -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.70</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>1.70</version>
+        </dependency>
     </dependencies>
-
 </project>
