@@ -18,9 +18,9 @@ This package currently includes the following classes and modules:
 ### Block
 - `Block.java`: Core block structure and Merkle logic
 
-### CENCALL (Contract Execution Call Logic) ~WIP THESE COMPONENTS ARE NOT USABLE IN CURRENT STATE~
-- `CallManager.java`: General contract call processor
-- `stakeCallManager.java`: Manages staking contract interactions
+### ~CENCALL (Contract Execution Call Logic)~ *WIP THESE COMPONENTS ARE NOT USABLE IN CURRENT STATE*
+- ~`CallManager.java`: General contract call processor~
+- ~`stakeCallManager.java`: Manages staking contract interactions~
 
 ### Crypto
 - `SHA256TransactionSigner.java`: Signs SHA-256 hashes using ECDSA over secp256k1
@@ -28,7 +28,7 @@ This package currently includes the following classes and modules:
 - `WalletGenerator.java`: Key pair generation, public key derivation, and address formatting
 
 ### Models
-- `Layer2Wallet.java`: Stores wallet balances for Layer 2 tokens ~WIP THIS COMPONENTS ARE NOT USABLE IN CURRENT STATE~
+- ~`Layer2Wallet.java`: Stores wallet balances for Layer 2 tokens~ *WIP THIS COMPONENTS ARE NOT USABLE IN CURRENT STATE*
 - `StateWallet.java`: Stores nonce and balance information for Layer 1 wallets
 
 ### Security
@@ -36,14 +36,14 @@ This package currently includes the following classes and modules:
 
 ### TXs (Transaction Types)
 - `TX.java`: Main Layer 1 transaction structure
-- `MintTX.java`: Specialized transaction for minting Layer 2 tokens ~WIP THIS COMPONENTS ARE NOT USABLE IN CURRENT STATE~
+- ~`MintTX.java`: Specialized transaction for minting Layer 2 tokens~ *WIP THIS COMPONENTS ARE NOT USABLE IN CURRENT STATE*
 
 ### Utils
 - `beantoshinomics.java`: Converts between BEAN and beantoshi (smallest unit)
 - `hex.java`: Hex encoding/decoding utility
 
 ### Wizard
-- `wizard.java`: Utility placeholder for future developer scaffolding ~USED AS LIGHT ENCRYPTION FOR NODE CONFIG, WILL BE UPDATED, AND WILL BE USED TO CREATE AN EASY DOWNLOAD LOCAL WIZARD KEY SAVER~
+- `wizard.java`: Utility placeholder for future developer scaffolding *USED AS LIGHT ENCRYPTION FOR NODE CONFIG, WILL BE UPDATED, AND WILL BE USED TO CREATE AN EASY DOWNLOAD LOCAL WIZARD KEY SAVER*
 
 ---
 
