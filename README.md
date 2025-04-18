@@ -1,6 +1,6 @@
 # BeanCore
 
-**BeanCore** is the official SDK for the BeanChain blockchain network. It provides core transaction models, cryptographic utilities, wallet state structures, and reusable tools shared across all BeanChain projects — including nodes, wallets, contract runners, and developer tools.
+**BeanCore** is the official SDK for the BeanChain blockchain network. It provides core transaction models, cryptographic utilities, wallet state structures, and reusable tools shared across all (*Java*) BeanChain projects — including nodes, contract runners, and developer tools.
 
 This SDK is designed for modular integration with:
 - *Java Built BeanChain Applications*
