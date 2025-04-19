@@ -6,11 +6,11 @@
 
     <groupId>com.beanchain</groupId>
     <artifactId>bean-core</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
     <packaging>jar</packaging>
 
     <name>BeanChain Core</name>
-    <description>Core cryptographic utilities and transaction models for the BeanChain blockchain network.</description>
+    <description>Building Blocks for Bean Devs (Crypto, Utils, Models, Managers, CEN modules)</description>
     <url>https://github.com/NonFasho/BeanCore</url>
 
     <licenses>
@@ -23,8 +23,8 @@
     <developers>
         <developer>
             <id>nonfasho</id>
-            <name>Non Fasho</name>
-            <email>youremail@example.com</email>
+            <name>Sam Fawks</name>
+            <email>samfawk@limabean.xyz</email>
         </developer>
     </developers>
 

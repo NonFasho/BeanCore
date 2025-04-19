@@ -18,7 +18,11 @@ public class TX {
     private String txHash;
     private String signature;
     private long gasFee;
+    // flags 
     private String status = "pending";
+    private String type = "transfer";
+    private String meta;
+
 
     public TX(){
 
@@ -45,6 +49,8 @@ public class TX {
     public String getSignature() {return signature;}
     public long getGasFee() {return gasFee;}
     public String getStatus() {return status;}
+    public String getType() {return type;}
+    public String getMeta() {return meta;}
 
     public void setFrom(String from) {this.from = from;}
     public void setNonce(int nonce) {this.nonce = nonce;}
@@ -56,10 +62,15 @@ public class TX {
     public void setSignature(String signature) {this.signature = signature;}
     public void setGasFee(long gasFee) {this.gasFee = gasFee;}
     public void setStatus(String status) {this.status = status;}
+    public void setType(String type) {this.type = type;}
+    public void setMeta(String meta) {this.meta = meta;}
 
     public String generateHash(){
+        // String metaSafe = (meta == null) ? "" : meta;
+        // String typeSafe = (type == null) ? "" : type;
+
         try {
-            String data = from + to + String.format("%.8f", amount) + timeStamp + nonce + gasFee;
+            String data = from + to + String.format("%.8f", amount) + timeStamp + nonce + gasFee; //  TODO: + metaSafe + typeSafe , add meta data to the hash so it cant be altered after tx validated
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(data.getBytes(StandardCharsets.UTF_8));
 
@@ -83,9 +94,7 @@ public class TX {
         }
         return jsonString;
     }
-
-    //for api submitted TX taken from JSON 
-    //entry for all 3rd party built bean transactions 
+ 
     public static TX fromJSON(String json) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -111,8 +120,6 @@ public class TX {
         
     }
 
-
-    
     public void debugHashValues() {
         System.out.println("From: " + from);
         System.out.println("To: " + to);
