@@ -1,7 +1,11 @@
 package com.bean_core.TXs;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+
 import com.bean_core.Utils.ParamBuilder;
 import com.bean_core.Utils.beantoshinomics;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MintTX extends TX {
     private static final long mintFee = 1;
@@ -11,7 +15,7 @@ public class MintTX extends TX {
         this.setType("mint");
     }
 
-    public MintTX(String from, String publicKeyHex, String to, double amount, int nonce, String token, double supply) {
+    public MintTX(String from, String publicKeyHex, String to, double amount, int nonce, String token, double supply, String symbol) {
         this.setFrom(from);
         this.setPublicKeyHex(publicKeyHex);
         this.setTo(to);
@@ -22,12 +26,17 @@ public class MintTX extends TX {
         this.setGasFee(beantoshinomics.toBeantoshi(supply) * mintFee);
         this.setTxHash(this.generateHash());
 
+        String tokenHash = generateHash(from, token, Double.toString(supply), symbol);
+
         this.paramBuilder
             .add("mode", "create")
             .add("token", token)
+            .add("tokenHash", tokenHash)
             .add("supply", supply)
             .add("capped", false)
             .add("openMint", false);
+        
+        
     }
 
     public MintTX(String from, String publicKeyHex, String to, double amount, int nonce, String tokenHash) {
@@ -59,5 +68,26 @@ public class MintTX extends TX {
         if (this.getMeta() == null) {
             this.setMeta(this.paramBuilder.build());
         }
+    }
+
+    public String generateHash(String minter, String token, String supply, String symbol){
+        
+        try {
+            String data = minter + token + supply + symbol; //uses original supply at mint 
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(data.getBytes(StandardCharsets.UTF_8));
+
+            StringBuilder hexString = new StringBuilder();
+            for(byte b: hash){
+                hexString.append(String.format("%02x", b));
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getTokenHash() throws Exception {
+        return new ObjectMapper().readTree(this.getMeta()).get("tokenHash").asText();
     }
 }
