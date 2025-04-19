@@ -43,7 +43,7 @@ This package currently includes the following classes and modules:
 - `hex.java`: Hex encoding/decoding utility
 
 ### Wizard
-- `wizard.java`: Utility placeholder for future developer scaffolding *USED AS LIGHT ENCRYPTION FOR NODE CONFIG, WILL BE UPDATED, AND WILL BE USED TO CREATE AN EASY DOWNLOAD LOCAL WIZARD KEY SAVER*
+- `wizard.java`: Utility  *USED AS LIGHT ENCRYPTION FOR NODE CONFIG, WILL BE UPDATED, AND WILL BE USED TO CREATE AN EASY DOWNLOAD LOCAL WIZARD KEY SAVER*
 
 ---
 
@@ -68,7 +68,7 @@ BeanCore is published via GitHub Packages and can be added to any Maven-based Ja
 <dependency>
   <groupId>com.beanchain</groupId>
   <artifactId>bean-core</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 
