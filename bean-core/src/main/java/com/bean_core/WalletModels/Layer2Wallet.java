@@ -1,4 +1,4 @@
-package com.bean_core.Models;
+package com.bean_core.WalletModels;
 
 import java.util.HashMap;
 import java.util.Map;

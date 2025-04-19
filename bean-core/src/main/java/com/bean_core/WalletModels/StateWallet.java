@@ -1,4 +1,4 @@
-package com.bean_core.Models;
+package com.bean_core.WalletModels;
 
 import com.bean_core.Utils.beantoshinomics;
 import com.fasterxml.jackson.databind.ObjectMapper;
