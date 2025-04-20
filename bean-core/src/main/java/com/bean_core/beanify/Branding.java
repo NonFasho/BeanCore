@@ -3,6 +3,7 @@ package com.bean_core.beanify;
 import com.bean_core.head;
 
 public class Branding {
+    
     public static String logo = 
         "_____________________   _____    _______  _________   ___ ___    _____  .___ _______\n" + 
         "\\______   \\_   _____/  /  _  \\   \\      \\ \\_   ___ \\ /   |   \\  /  _  \\ |   |\\      \\\n" +  

@@ -28,7 +28,7 @@ public class TokenTX extends TX {
         this.setTxHash(this.generateHash()); 
     }
 
-    public TokenTX(String CEN, String CENpublicKeyHex, String to, double amount, int CENnonce, String tokenHash, long gasFee, String caller, String callHash, String callerPublicKey, String callSignature, int callerLayer2Nonce) {
+    public TokenTX(String CEN, String CENpublicKeyHex, String to, double amount, int CENnonce, String tokenHash, long gasFee, String caller, String callHash, String callerPublicKey, String callSignature, int callerLayer2Nonce, String contract, String callMethod, String contractHash) {
         this.setFrom(CEN);
         this.setPublicKeyHex(CENpublicKeyHex);
         this.setTo(to);
@@ -46,7 +46,10 @@ public class TokenTX extends TX {
             .add("callerLayer2Nonce", callerLayer2Nonce)
             .add("callSignature", callSignature)
             .add("tokenHash", tokenHash)
-            .add("amount", amount);
+            .add("amount", amount)
+            .add("contract", contract)
+            .add("contractHash", contractHash)
+            .add("callMethod", callMethod);
 
         this.setMeta(this.paramBuilder.build());
         this.setTxHash(this.generateHash()); 

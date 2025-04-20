@@ -50,17 +50,17 @@ public class Layer2Wallet {
         this.l2Nonce++;
     }
 
-    public int getBalance(String token) {
-        return tokenBalances.getOrDefault(token, 0);
+    public int getBalance(String tokenHash) {
+        return tokenBalances.getOrDefault(tokenHash, 0);
     }
 
-    public void setBalance(String token, int amount) {
-        tokenBalances.put(token, amount);
+    public void setBalance(String tokenHash, int amount) {
+        tokenBalances.put(tokenHash, amount);
     }
 
-    public void adjustBalance(String token, int delta) {
-        int current = getBalance(token);
-        tokenBalances.put(token, current + delta);
+    public void adjustBalance(String tokenHash, int delta) {
+        int current = getBalance(tokenHash);
+        tokenBalances.put(tokenHash, current + delta);
     }
 }
 

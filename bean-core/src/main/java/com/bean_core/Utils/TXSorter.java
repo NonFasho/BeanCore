@@ -54,4 +54,57 @@ public class TXSorter {
     public List<TX> getTokenTX() { return tokenTX; }
     public List<TX> getTokenCENTX() { return tokenCENTX; }
     public List<TX> getStakeTX() { return stakeTX; }
+
+    private int getLayer2Nonce(TX tx) {
+        try {
+            JsonNode meta = new ObjectMapper().readTree(tx.getMeta());
+            if (meta.has("callerLayer2Nonce")) {
+                return meta.get("callerLayer2Nonce").asInt(); // for tokenCENTX
+            }
+        } catch (Exception e) {
+            // fallback 
+        }
+        return tx.getNonce(); // normal tokenTX
+    }
+
+    private List<TX> sortByFeeAndNonce(List<TX> txs) {
+        txs.sort((a, b) -> {
+            int feeCompare = Long.compare(b.getGasFee(), a.getGasFee());
+            if (feeCompare != 0) return feeCompare;
+    
+            // For tokenTX and tokenCENTX, use L2 sender and L2 nonce
+            boolean isL2 = a.getType().equals("token") || a.getType().equals("tokenCENTX");
+    
+            String fromA = isL2 ? getL2Sender(a) : a.getFrom();
+            String fromB = isL2 ? getL2Sender(b) : b.getFrom();
+    
+            int fromCompare = fromA.compareTo(fromB);
+            if (fromCompare != 0) return fromCompare;
+    
+            int nonceA = isL2 ? getLayer2Nonce(a) : a.getNonce();
+            int nonceB = isL2 ? getLayer2Nonce(b) : b.getNonce();
+    
+            return Integer.compare(nonceA, nonceB);
+        });
+    
+        return txs;
+    }
+
+    private String getL2Sender(TX tx) {
+        try {
+            JsonNode meta = new ObjectMapper().readTree(tx.getMeta());
+            if (meta.has("caller")) {
+                return meta.get("caller").asText();
+            }
+        } catch (Exception e) {}
+        return tx.getFrom();
+    }
+
+    public void sortEachList() {
+        transferTX = sortByFeeAndNonce(transferTX);
+        mintTX = sortByFeeAndNonce(mintTX);
+        tokenTX = sortByFeeAndNonce(tokenTX);
+        tokenCENTX = sortByFeeAndNonce(tokenCENTX);
+        stakeTX = sortByFeeAndNonce(stakeTX);
+    }
 }
