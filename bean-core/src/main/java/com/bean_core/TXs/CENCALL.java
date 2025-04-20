@@ -4,7 +4,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.PrivateKey;
 
-import org.bouncycastle.util.IPAddress;
 
 import com.bean_core.Utils.ParamBuilder;
 import com.bean_core.Utils.hex;
@@ -21,7 +20,7 @@ public class CENCALL {
     private String callSignature;
     private String contract;
     private String contractHash;
-    private IPAddress cenIP;
+    private String cenIP;
     private String method;
     private String params;
     private ParamBuilder paramBuilder = new ParamBuilder();
@@ -29,11 +28,11 @@ public class CENCALL {
     public String getCaller() { return caller; }
     public String getContract() { return contract; }
     public String getContractHash() { return contractHash; }
-    public IPAddress getCenIP() { return cenIP; }
+    public String getCenIP() { return cenIP; }
     public String getMethod() { return method; }
     public String getParams() { return this.params;}
 
-    public CENCALL(String caller, String callerPrivateKeyHex, String contract, String contractHash, IPAddress cenIP, String method) throws Exception {
+    public CENCALL(String caller, String callerPrivateKeyHex, String contract, String contractHash, String cenIP, String method) throws Exception {
         this.caller = caller;
         this.contract = contract;
         this.callerPrivateKeyHex = callerPrivateKeyHex;
