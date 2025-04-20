@@ -1,13 +1,13 @@
 com\bean_core\crypto\TransactionVerifier.class
 com\bean_core\head.class
 com\bean_core\Block\Block.class
+com\bean_core\Utils\beantoshinomics.class
+com\bean_core\beanify\Branding.class
+com\bean_core\Security\SecuritySetup.class
 com\bean_core\crypto\WalletGenerator.class
 com\bean_core\TXs\TX.class
 com\bean_core\Utils\hex.class
-com\bean_core\Utils\beantoshinomics.class
 com\bean_core\Wizard\wizard.class
-com\bean_core\beanify\Branding.class
 com\bean_core\NodeConfig\ConfigLoader.class
-com\bean_core\Security\SecuritySetup.class
 com\bean_core\TXs\MintTX.class
 com\bean_core\crypto\SHA256TransactionSigner.class

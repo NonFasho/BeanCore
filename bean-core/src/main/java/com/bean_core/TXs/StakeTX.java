@@ -9,10 +9,10 @@ public class StakeTX extends TX {
         this.setType("stake");
     }
 
-    public StakeTX(String from, String publicKeyHex, String to, double amount, int nonce, String mode, String tokenHash, long gasFee) {
+    public StakeTX(String from, String publicKeyHex, double amount, int nonce, String mode, String tokenHash, long gasFee) {
         this.setFrom(from);
         this.setPublicKeyHex(publicKeyHex);
-        this.setTo(to);
+        this.setTo("BEANX:0xSTAKECONTRACTPLACEHOLDER");
         this.setAmount(amount);
         this.setNonce(nonce);
         this.setTimeStamp(System.currentTimeMillis());

@@ -9,8 +9,10 @@ C:\BeanCore\bean-core\src\main\java\com\bean_core\crypto\WalletGenerator.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\head.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Models\Layer2Wallet.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Models\StateWallet.java
+C:\BeanCore\bean-core\src\main\java\com\bean_core\Models\TokenStorage.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\NodeConfig\ConfigLoader.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Security\SecuritySetup.java
+C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\AirdropTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\CENCALL.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\MintTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\StakeTX.java
@@ -18,6 +20,7 @@ C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\TokenTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\TX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Utils\beantoshinomics.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Utils\hex.java
+C:\BeanCore\bean-core\src\main\java\com\bean_core\Utils\MetaHelper.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Utils\ParamBuilder.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Utils\TXSorter.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Wizard\wizard.java
