@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bean_core.TXs.*;
+import com.bean_core.Utils.ParamBuilder;
 import com.bean_core.crypto.SHA256TransactionSigner;
 import com.bean_core.crypto.TransactionVerifier;
 import com.bean_core.crypto.WalletGenerator;
@@ -22,6 +23,7 @@ public class Block {
     private long timeStamp;
     private String validatorPubKey;
     private String signature;
+    private String header;
     
     @JsonIgnore
     private transient List<TX> fullTransactions = new ArrayList<>();
@@ -34,6 +36,7 @@ public class Block {
     public List<String> getTransactions() {return transactions;}
     public String getValidatorPubKey() {return validatorPubKey;}
     public String getSignature() {return signature;}
+    public String getHeader() {return header;}
 
     public void setHeight(int height) {this.height = height;}
     public void setMerkleRoot(String merkleroot) {this.merkleroot = merkleroot;}
@@ -135,7 +138,7 @@ public class Block {
         if (merkleValid && hashValid && signatureValid && previousHashValid) {
             return true;
         } else {
-            System.err.println("❌ Block failed validation:");
+            System.err.println("Block failed validation:");
             if (!merkleValid) System.err.println(" - Merkle root mismatch");
             if (!hashValid) System.err.println(" - Hash mismatch");
             if (!signatureValid) System.err.println(" - Invalid signature");
@@ -193,6 +196,15 @@ public class Block {
     
     public List<TX> getFullTransactions() {
         return fullTransactions;
+    }
+
+    public void setHeader(long gasFee){
+        ParamBuilder builder = new ParamBuilder();
+        builder.add("validator", validatorPubKey)
+                .add("height", height)
+                .add("previousHash", previousHash)
+                .add("gasFeeReward", gasFee);
+        this.header = builder.build();
     }
     
 }
