@@ -12,6 +12,7 @@ import com.bean_core.crypto.SHA256TransactionSigner;
 import com.bean_core.crypto.TransactionVerifier;
 import com.bean_core.crypto.WalletGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -25,6 +26,7 @@ public class Block {
     private long timeStamp;
     private String validatorPubKey;
     private String signature;
+    @JsonProperty("header")
     private BlockHeader header;
     
     @JsonIgnore
@@ -48,6 +50,7 @@ public class Block {
     public void setTransactions(List<String> transactions) {this.transactions = transactions;}
     public void setValidatorPubKey(String validatorPubKey) {this.validatorPubKey = validatorPubKey;}
     public void setSignature(String signature) {this.signature = signature;}
+    public void setHeader(BlockHeader header) { this.header = header; }
 
     public Block() {
 
@@ -99,11 +102,19 @@ public class Block {
     }
 
     public static Block fromJSON(String json) {
-        System.out.println("TEST PRINT OF RAW BLOCK: " + json + " END TEST *****");
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.findAndRegisterModules(); // <-- FIX: support nested classes
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // Optional safety
+            objectMapper.findAndRegisterModules();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    
+            // Pretty print the incoming JSON so it's readable
+            Object jsonObject = objectMapper.readValue(json, Object.class);
+            String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+    
+            System.out.println("\nTEST PRINT OF RAW BLOCK:");
+            System.out.println(prettyJson);
+            System.out.println("END TEST *****\n");
+    
             return objectMapper.readValue(json, Block.class);
         } catch (Exception e) {
             System.out.println(e);
