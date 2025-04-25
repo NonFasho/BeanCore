@@ -4,13 +4,13 @@ public class BlockHeader {
     private String validator;
     private int height;
     private String previousHash;
-    private double gasFeeReward;
+    private long gasFeeReward;
 
     public BlockHeader() {
     }
 
     
-    public BlockHeader(String validator, int height, String previousHash, double gasFeeReward) {
+    public BlockHeader(String validator, int height, String previousHash, long gasFeeReward) {
         this.validator = validator;
         this.height = height;
         this.previousHash = previousHash;
@@ -27,7 +27,7 @@ public class BlockHeader {
     public String getPreviousHash() { return previousHash; }
     public void setPreviousHash(String previousHash) { this.previousHash = previousHash; }
 
-    public double getGasFeeReward() { return gasFeeReward; }
-    public void setGasFeeReward(double gasFeeReward) { this.gasFeeReward = gasFeeReward; }
+    public long getGasFeeReward() { return gasFeeReward; }
+    public void setGasFeeReward(long gasFeeReward) { this.gasFeeReward = gasFeeReward; }
 }
 
