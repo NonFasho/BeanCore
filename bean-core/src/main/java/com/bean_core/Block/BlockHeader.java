@@ -6,6 +6,17 @@ public class BlockHeader {
     private String previousHash;
     private double gasFeeReward;
 
+    public BlockHeader() {
+    }
+
+    
+    public BlockHeader(String validator, int height, String previousHash, double gasFeeReward) {
+        this.validator = validator;
+        this.height = height;
+        this.previousHash = previousHash;
+        this.gasFeeReward = gasFeeReward;
+    }
+
     // Getters and setters
     public String getValidator() { return validator; }
     public void setValidator(String validator) { this.validator = validator; }
