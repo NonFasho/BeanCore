@@ -23,7 +23,7 @@ public class Block {
     private long timeStamp;
     private String validatorPubKey;
     private String signature;
-    private String header;
+    private BlockHeader header;
     
     @JsonIgnore
     private transient List<TX> fullTransactions = new ArrayList<>();
@@ -36,7 +36,7 @@ public class Block {
     public List<String> getTransactions() {return transactions;}
     public String getValidatorPubKey() {return validatorPubKey;}
     public String getSignature() {return signature;}
-    public String getHeader() {return header;}
+    public BlockHeader getHeader() {return header;}
 
     public void setHeight(int height) {this.height = height;}
     public void setMerkleRoot(String merkleroot) {this.merkleroot = merkleroot;}
@@ -199,12 +199,12 @@ public class Block {
     }
 
     public void setHeader(long gasFee){
-        ParamBuilder builder = new ParamBuilder();
-        builder.add("validator", validatorPubKey)
-                .add("height", height)
-                .add("previousHash", previousHash)
-                .add("gasFeeReward", gasFee);
-        this.header = builder.build();
+        BlockHeader h = new BlockHeader();
+        h.setValidator(validatorPubKey);
+        h.setHeight(height);
+        h.setPreviousHash(previousHash);
+        h.setGasFeeReward(gasFee);
+        this.header = h;
     }
     
 }
