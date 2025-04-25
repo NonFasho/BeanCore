@@ -95,6 +95,7 @@ public class Block {
     }
 
     public static Block fromJSON(String json) {
+        System.out.println("TEST PRINT OF RAW BLOCK: " + json + " END TEST *****");
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.readValue(json, Block.class);
