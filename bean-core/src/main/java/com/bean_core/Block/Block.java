@@ -12,7 +12,9 @@ import com.bean_core.crypto.SHA256TransactionSigner;
 import com.bean_core.crypto.TransactionVerifier;
 import com.bean_core.crypto.WalletGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class Block {
     private int height;
@@ -87,6 +89,8 @@ public class Block {
         String jsonString = "";
         try {
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.findAndRegisterModules(); // <-- FIX: support nested classes
+            objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false); // Optional safety
             jsonString = objectMapper.writeValueAsString(this);
         } catch (Exception e) {
             System.out.println(e);
@@ -98,6 +102,8 @@ public class Block {
         System.out.println("TEST PRINT OF RAW BLOCK: " + json + " END TEST *****");
         try {
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.findAndRegisterModules(); // <-- FIX: support nested classes
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // Optional safety
             return objectMapper.readValue(json, Block.class);
         } catch (Exception e) {
             System.out.println(e);
