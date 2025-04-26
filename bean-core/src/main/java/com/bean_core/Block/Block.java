@@ -74,7 +74,7 @@ public class Block {
     public String calculateBlockHash(){
         try {
             String safeMerkleRoot = (merkleroot == null) ? "" : merkleroot;
-            String data = height + previousHash + safeMerkleRoot;
+            String data = Integer.toString(height) + previousHash + safeMerkleRoot;
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(data.getBytes(StandardCharsets.UTF_8));
 
