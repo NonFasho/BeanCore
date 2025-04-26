@@ -158,7 +158,7 @@ public class Block {
         } else {
             System.err.println("Block failed validation:");
             if (!merkleValid) System.err.println(" - Merkle root mismatch");
-            if (!hashValid) System.err.println(" - Hash mismatch: Expected: " + expectedPrevHash + "Calculated: " + this.calculateBlockHash());
+            if (!hashValid) System.err.println(" - Hash mismatch: Expected: " + this.getHash() + "Calculated: " + this.calculateBlockHash());
             if (!signatureValid) System.err.println(" - Invalid signature");
             if (!previousHashValid) {
                 System.err.println(" - Invalid Previous Hash");
