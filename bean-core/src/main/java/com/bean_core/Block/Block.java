@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bean_core.TXs.*;
-import com.bean_core.Utils.ParamBuilder;
 import com.bean_core.crypto.SHA256TransactionSigner;
 import com.bean_core.crypto.TransactionVerifier;
 import com.bean_core.crypto.WalletGenerator;
@@ -21,6 +20,7 @@ public class Block {
     private int height;
     private String previousHash;
     private String hash;
+    @JsonProperty("merkleRoot")
     private String merkleroot;
     private List<String> transactions;
     private long timeStamp;
