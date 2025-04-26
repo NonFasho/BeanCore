@@ -150,6 +150,8 @@ public class Block {
     public boolean validateBlock(String expectedPrevHash) throws Exception {
     
         boolean merkleValid = this.getMerkleRoot().equals(this.calculateMerkleRoot());
+        System.out.println("BEFORE RECAULCULATE HASH: " + this.getHash() + " Params: Height: " + this.getHeight()+ " PrevHash: " + this.getPreviousHash() + " MerkleRoot: " + this.getMerkleRoot());
+        System.out.println("NEWLY CALCULATEDD HASH: " + this.calculateBlockHash());
         boolean hashValid = this.getHash().equals(this.calculateBlockHash());
         boolean signatureValid = this.signatureValid();
         boolean previousHashValid = this.getPreviousHash().equals(expectedPrevHash);
@@ -159,7 +161,7 @@ public class Block {
         } else {
             System.err.println("Block failed validation:");
             if (!merkleValid) System.err.println(" - Merkle root mismatch");
-            if (!hashValid) System.err.println(" - Hash mismatch: Expected: " + this.getHash() + "Calculated: " + this.calculateBlockHash());
+            if (!hashValid) System.err.println(" - Hash mismatch: Expected: " + this.getHash() + " Calculated: " + this.calculateBlockHash());
             if (!signatureValid) System.err.println(" - Invalid signature");
             if (!previousHashValid) {
                 System.err.println(" - Invalid Previous Hash");
