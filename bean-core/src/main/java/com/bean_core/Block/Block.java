@@ -75,6 +75,10 @@ public class Block {
         try {
             String safeMerkleRoot = (merkleroot == null) ? "" : merkleroot;
             String data = Integer.toString(height) + previousHash + safeMerkleRoot;
+            System.out.println("Height: " + Integer.toString(height));
+            System.out.println("MerkleRoot: " + safeMerkleRoot);
+            System.out.println("previousHash: " + previousHash);
+            System.out.println("Data to hash: " + data);
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(data.getBytes(StandardCharsets.UTF_8));
 
