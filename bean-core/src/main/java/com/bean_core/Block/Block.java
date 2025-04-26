@@ -75,10 +75,10 @@ public class Block {
         try {
             String safeMerkleRoot = (merkleroot == null) ? "" : merkleroot;
             String data = Integer.toString(height) + previousHash + safeMerkleRoot;
-            System.out.println("Height: " + Integer.toString(height));
-            System.out.println("MerkleRoot: " + safeMerkleRoot);
-            System.out.println("previousHash: " + previousHash);
-            System.out.println("Data to hash: " + data);
+            // System.out.println("Height: " + Integer.toString(height));
+            // System.out.println("MerkleRoot: " + safeMerkleRoot);
+            // System.out.println("previousHash: " + previousHash);
+            // System.out.println("Data to hash: " + data);
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(data.getBytes(StandardCharsets.UTF_8));
 
@@ -154,8 +154,8 @@ public class Block {
     public boolean validateBlock(String expectedPrevHash) throws Exception {
     
         boolean merkleValid = this.getMerkleRoot().equals(this.calculateMerkleRoot());
-        System.out.println("BEFORE RECAULCULATE HASH: " + this.getHash() + " Params: Height: " + this.getHeight()+ " PrevHash: " + this.getPreviousHash() + " MerkleRoot: " + this.getMerkleRoot());
-        System.out.println("NEWLY CALCULATEDD HASH: " + this.calculateBlockHash());
+        // System.out.println("BEFORE RECAULCULATE HASH: " + this.getHash() + " Params: Height: " + this.getHeight()+ " PrevHash: " + this.getPreviousHash() + " MerkleRoot: " + this.getMerkleRoot());
+        // System.out.println("NEWLY CALCULATEDD HASH: " + this.calculateBlockHash());
         boolean hashValid = this.getHash().equals(this.calculateBlockHash());
         boolean signatureValid = this.signatureValid();
         boolean previousHashValid = this.getPreviousHash().equals(expectedPrevHash);

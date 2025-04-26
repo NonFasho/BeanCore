@@ -21,6 +21,7 @@ public class TXSorter {
 
             switch (type) {
                 case "transfer":
+                case "airdrop":
                     transferTX.add(tx);
                     break;
                 case "mint":
