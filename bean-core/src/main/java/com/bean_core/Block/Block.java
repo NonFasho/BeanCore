@@ -108,12 +108,12 @@ public class Block {
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     
             // Pretty print the incoming JSON so it's readable
-            Object jsonObject = objectMapper.readValue(json, Object.class);
-            String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+            // Object jsonObject = objectMapper.readValue(json, Object.class);
+            // String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
     
-            System.out.println("\nTEST PRINT OF RAW BLOCK:");
-            System.out.println(prettyJson);
-            System.out.println("END TEST *****\n");
+            // System.out.println("\nTEST PRINT OF RAW BLOCK:");
+            // System.out.println(prettyJson);
+            // System.out.println("END TEST *****\n");
     
             return objectMapper.readValue(json, Block.class);
         } catch (Exception e) {
