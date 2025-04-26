@@ -216,7 +216,7 @@ public class Block {
         return fullTransactions;
     }
 
-    public void setHeader(long gasFee){
+    public void initHeader(long gasFee){
         BlockHeader h = new BlockHeader();
         h.setValidator(validatorPubKey);
         h.setHeight(height);
