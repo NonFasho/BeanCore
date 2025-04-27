@@ -29,7 +29,8 @@ public class TXSorter {
                     break;
                 case "token":
                     JsonNode metaNode = getMetaNode(tx);
-                    if (metaNode.has("isCEN") && metaNode.get("isCEN").asBoolean()) {
+                    boolean isCEN = metaNode != null && metaNode.has("isCEN") && metaNode.get("isCEN") != null && metaNode.get("isCEN").asBoolean();
+                    if (isCEN) {
                         tokenCENTX.add(tx);
                     } else {
                         tokenTX.add(tx);
