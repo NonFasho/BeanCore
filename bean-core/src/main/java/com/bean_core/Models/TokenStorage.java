@@ -23,7 +23,7 @@ public class TokenStorage {
                                 .add("symbol", symbol)
                                 .add("supply", storedToshiSupply)
                                 .add("minter", minter)
-                                .add("mintable", mintable)
+                                .add("mintable", !mintable)
                                 .add("open", open)
                                 .build();
 

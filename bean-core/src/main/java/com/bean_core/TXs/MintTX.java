@@ -31,6 +31,7 @@ public class MintTX extends TX {
         this.paramBuilder
             .add("mode", "create")
             .add("token", token)
+            .add("symbol", symbol)
             .add("tokenHash", tokenHash)
             .add("supply", supply)
             .add("capped", false)
