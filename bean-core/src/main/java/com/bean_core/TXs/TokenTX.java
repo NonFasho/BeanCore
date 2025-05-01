@@ -55,6 +55,30 @@ public class TokenTX extends TX {
         this.setTxHash(this.generateHash()); 
     }
 
+
+    public TokenTX(String from, String publicKeyHex, double amount, int layer2Nonce, String tokenHash, long gasFee) {
+        this.setFrom(from);
+        this.setPublicKeyHex(publicKeyHex);
+        this.setTo("BEANX:0xBURNTOKEN");
+        this.setAmount(amount);
+        this.setNonce(layer2Nonce);
+        this.setTimeStamp(System.currentTimeMillis());
+        this.setType("token");
+        this.setGasFee(gasFee);
+
+        String executeValue = "burn";
+
+        this.paramBuilder
+            .add("tokenHash", tokenHash)
+            .add("amount", amount)
+            .add("execute", executeValue);
+
+        this.setMeta(this.paramBuilder.build());
+        this.setTxHash(this.generateHash()); 
+    }
+
+    
+
     public TokenTX addParam(String key, boolean value) {
         this.paramBuilder.add(key, value);
         return this;

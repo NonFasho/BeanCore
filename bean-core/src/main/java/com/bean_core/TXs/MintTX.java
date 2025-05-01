@@ -57,6 +57,25 @@ public class MintTX extends TX {
             .add("amount", amount);
     }
 
+    //working on NFT set up 
+    // public MintTX(String from, String publicKeyHex, String to, String tokenId, int nonce, String tokenHash, long gasFee, String meta) {
+    //     this.setFrom(from);
+    //     this.setPublicKeyHex(publicKeyHex);
+    //     this.setTo(to);
+    //     this.setAmount(1);
+    //     this.setNonce(nonce);
+    //     this.setTimeStamp(System.currentTimeMillis());
+    //     this.setType("mint");
+    //     this.setGasFee(gasFee);
+    //     this.setTxHash(this.generateHash());
+
+    //     this.paramBuilder
+    //         .add("mode", "NFT")
+    //         .add("tokenHash", tokenHash)
+    //         .add("tokenId", tokenId);
+    //         .add("meta",)
+    // }
+
     public void capSupply() {
         this.paramBuilder.add("capped", true);
     }
