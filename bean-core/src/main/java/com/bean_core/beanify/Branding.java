@@ -2,6 +2,21 @@ package com.bean_core.beanify;
 
 import com.bean_core.head;
 
+/**
+ * The {@code Branding} class contains branding-related information for the application.
+ * It includes a static representation of the application's logo in ASCII art format.
+ * 
+ * <p>The logo also incorporates the application's version, which is dynamically appended
+ * from the {@code head.version} property.
+ * 
+ * <p>Usage:
+ * <pre>
+ *     System.out.println(Branding.logo);
+ * </pre>
+ * 
+ * <p>Note: Ensure that the {@code head.version} property is properly initialized
+ * before accessing the {@code logo} field to avoid runtime issues.
+ */
 public class Branding {
     
     public static String logo = 
