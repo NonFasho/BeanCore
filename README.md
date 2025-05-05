@@ -20,7 +20,6 @@ This package currently includes the following classes and modules:
 
 ### ~CENCALL (Contract Execution Call Logic)~ *WIP THESE COMPONENTS ARE NOT USABLE IN CURRENT STATE*
 - ~`CallManager.java`: General contract call processor~
-- ~`stakeCallManager.java`: Manages staking contract interactions~
 
 ### Crypto
 - `SHA256TransactionSigner.java`: Signs SHA-256 hashes using ECDSA over secp256k1
@@ -28,7 +27,7 @@ This package currently includes the following classes and modules:
 - `WalletGenerator.java`: Key pair generation, public key derivation, and address formatting
 
 ### Models
-- ~`Layer2Wallet.java`: Stores wallet balances for Layer 2 tokens~ *WIP THIS COMPONENTS ARE NOT USABLE IN CURRENT STATE*
+- `Layer2Wallet.java`: Stores wallet balances for Layer 2 tokens 
 - `StateWallet.java`: Stores nonce and balance information for Layer 1 wallets
 
 ### Security
@@ -36,7 +35,11 @@ This package currently includes the following classes and modules:
 
 ### TXs (Transaction Types)
 - `TX.java`: Main Layer 1 transaction structure
-- ~`MintTX.java`: Specialized transaction for minting Layer 2 tokens~ *WIP THIS COMPONENTS ARE NOT USABLE IN CURRENT STATE*
+- `MintTX.java`: Specialized TX for minting Layer 2 tokens
+- `TokenTX.java`: Specialized TX for sending layer 2 tokens
+- `TokenCENTX.java`: Specialized TX for CEN initiated layer 2 TX
+- `StakeTX.java`: Specialized TX for internal hardcoded Stake contract logic
+- `AirdropTX.java`: Specific TX model used by the team RN for reward/drip airdrops 
 
 ### Utils
 - `beantoshinomics.java`: Converts between BEAN and beantoshi (smallest unit)
@@ -57,7 +60,7 @@ BeanCore is published via GitHub Packages and can be added to any Maven-based Ja
 <repositories>
   <repository>
     <id>github</id>
-    <url>https://maven.pkg.github.com/NonFasho/BeanCore</url>
+    <url>https://maven.pkg.github.com/BeanChain-Core/BeanCore</url>
   </repository>
 </repositories>
 ```
@@ -68,9 +71,10 @@ BeanCore is published via GitHub Packages and can be added to any Maven-based Ja
 <dependency>
   <groupId>com.beanchain</groupId>
   <artifactId>bean-core</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.3</version>
 </dependency>
 ```
+CHECK THE LATEST VERSION RELEASE
 
 ### Step 3: Add your GitHub token to Maven settings
 
@@ -101,6 +105,6 @@ See the [`LICENSE`](LICENSE) file for details.
 
 For support, integration help, or contribution inquiries, contact the BeanChain core team:
 
-**Email:** samfawk@limabean.xyz
+**Email:** team@limabean.xyz
 
 
