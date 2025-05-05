@@ -4,7 +4,6 @@ C:\BeanCore\bean-core\src\main\java\com\bean_core\Block\BlockHeader.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Block\VersionTest.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\CENdev\BaseContract.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\CENdev\CallManager.java
-C:\BeanCore\bean-core\src\main\java\com\bean_core\CENdev\ContractRegistry.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\crypto\SHA256TransactionSigner.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\crypto\TransactionVerifier.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\crypto\WalletGenerator.java
@@ -16,6 +15,7 @@ C:\BeanCore\bean-core\src\main\java\com\bean_core\NodeConfig\ConfigLoader.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\Security\SecuritySetup.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\AirdropTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\CENCALL.java
+C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\FundedCallTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\MintTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\StakeTX.java
 C:\BeanCore\bean-core\src\main\java\com\bean_core\TXs\TokenTX.java
