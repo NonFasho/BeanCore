@@ -6,12 +6,12 @@
 
     <groupId>com.beanchain</groupId>
     <artifactId>bean-core</artifactId>
-    <version>0.2.3</version>
+    <version>0.2.4</version>
     <packaging>jar</packaging>
 
     <name>BeanChain Core</name>
     <description>Building Blocks for Bean Devs (Crypto, Utils, Models, Managers, CEN modules)</description>
-    <url>https://github.com/NonFasho/BeanCore</url>
+    <url>https://github.com/BeanChain-Core/BeanCore</url>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -44,7 +44,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/NonFasho/BeanCore</url>
+            <url>https://maven.pkg.github.com/BeanChain-Core/BeanCore</url>
         </repository>
     </distributionManagement>
 
