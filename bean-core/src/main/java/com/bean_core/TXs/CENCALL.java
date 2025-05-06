@@ -32,6 +32,21 @@ public class CENCALL {
     public String getMethod() { return method; }
     public String getParams() { return this.params;}
 
+    public void setCaller(String caller) { this.caller = caller; }
+    public void setCallerPublicKeyHex(String pubKey) { this.callerPublicKeyHex = pubKey; }
+    public void setCallerPrivateKeyHex(String privKey) { this.callerPrivateKeyHex = privKey; }
+    public void setCallHash(String callHash) { this.callHash = callHash; }
+    public void setCallSignature(String sig) { this.callSignature = sig; }
+    public void setContract(String contract) { this.contract = contract; }
+    public void setContractHash(String contractHash) { this.contractHash = contractHash; }
+    public void setCenIP(String cenIP) { this.cenIP = cenIP; }
+    public void setMethod(String method) { this.method = method; }
+    public void setParams(String paramsJson) { this.params = paramsJson; }
+
+    public CENCALL() {
+        this.paramBuilder = new ParamBuilder();
+    }
+
     public CENCALL(String caller, String callerPrivateKeyHex, String contract, String contractHash, String cenIP, String method) throws Exception {
         this.caller = caller;
         this.contract = contract;

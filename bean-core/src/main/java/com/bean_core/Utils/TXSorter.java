@@ -13,6 +13,7 @@ public class TXSorter {
     private List<TX> tokenTX = new ArrayList<>();
     private List<TX> tokenCENTX = new ArrayList<>();
     private List<TX> stakeTX = new ArrayList<>();
+    private List<TX> fundedCallTX = new ArrayList<>();
 
     public void sort(List<TX> memPool) throws Exception {
         for (TX tx : memPool) {
@@ -39,6 +40,9 @@ public class TXSorter {
                 case "stake":
                     stakeTX.add(tx);
                     break;
+                case "cen":
+                    fundedCallTX.add(tx);
+                    break;
                 default:
                     System.out.println("ERROR: Unrecognized TX type for hash: " + tx.getTxHash());
                     break;
@@ -56,6 +60,7 @@ public class TXSorter {
     public List<TX> getTokenTX() { return tokenTX; }
     public List<TX> getTokenCENTX() { return tokenCENTX; }
     public List<TX> getStakeTX() { return stakeTX; }
+    public List<TX> getFundedCallTX() { return fundedCallTX; }
 
     private int getLayer2Nonce(TX tx) {
         try {
@@ -108,5 +113,6 @@ public class TXSorter {
         tokenTX = sortByFeeAndNonce(tokenTX);
         tokenCENTX = sortByFeeAndNonce(tokenCENTX);
         stakeTX = sortByFeeAndNonce(stakeTX);
+        fundedCallTX = sortByFeeAndNonce(fundedCallTX);
     }
 }
