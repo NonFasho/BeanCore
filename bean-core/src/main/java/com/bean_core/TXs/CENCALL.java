@@ -41,7 +41,11 @@ public class CENCALL {
     public void setContractHash(String contractHash) { this.contractHash = contractHash; }
     public void setCenIP(String cenIP) { this.cenIP = cenIP; }
     public void setMethod(String method) { this.method = method; }
-    public void setParams(String paramsJson) { this.params = paramsJson; }
+    public void setParams(String paramsJson) {
+        this.params = paramsJson;
+        this.paramBuilder.loadFromJson(paramsJson); 
+    }
+    
 
     public CENCALL() {
         this.paramBuilder = new ParamBuilder();

@@ -1,5 +1,6 @@
 package com.bean_core.Utils;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -35,5 +36,21 @@ public class ParamBuilder {
 
     public String build() {
         return root.toString();
+    }
+
+    public void loadFromJson(String json) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode node = mapper.readTree(json);
+            node.fieldNames().forEachRemaining(key -> {
+                JsonNode value = node.get(key);
+                if (value.isTextual()) this.add(key, value.asText());
+                else if (value.isInt()) this.add(key, value.asInt());
+                else if (value.isBoolean()) this.add(key, value.asBoolean());
+                else this.add(key, value.toString());
+            });
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load params from JSON", e);
+        }
     }
 }
