@@ -1,8 +1,9 @@
 package com.bean_core.CENdev;
 
+import com.bean_core.TXs.CENCALL;
 
 public interface BaseContract {
 
-    void execute(String method, String caller, String params);
+    void execute(CENCALL call);
     
 }

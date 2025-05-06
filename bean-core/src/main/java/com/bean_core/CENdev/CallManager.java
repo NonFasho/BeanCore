@@ -94,7 +94,7 @@ public class CallManager {
     // funded CENCALLs 
 
     public String getEmbeddedTXJson() {
-        return unpackedParams.has("tx") ? unpackedParams.get("tx").toString() : null;
+        return unpackedParams.has("originalStakeTx") ? unpackedParams.get("tx").toString() : null; //updated for node correction 
     }
 
     public String getFundingHash() throws Exception{
