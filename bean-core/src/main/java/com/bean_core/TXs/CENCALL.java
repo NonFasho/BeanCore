@@ -112,9 +112,8 @@ public class CENCALL {
     }
 
     public void finalizeParams() {
-        if (this.params == null) {
-            this.params = this.paramBuilder.build();
-        }
+        this.params = this.paramBuilder.build();
+        
     }
 
     // for sending call via network sockets 
