@@ -8,6 +8,17 @@ import com.bean_core.crypto.*;
 import com.bean_core.Utils.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Represents a core Layer 1 transaction on the BeanChain network.
+ * 
+ * <p>This class encapsulates all required fields for a valid blockchain transaction,
+ * including sender, recipient, amount, gas fee, nonce, public key, and signature. 
+ * Each transaction also includes metadata such as timestamp, status, type, and optional
+ * user-defined metadata.
+ * 
+ * <p>Transactions can be signed, hashed, serialized to JSON, or parsed from JSON.
+ * This class is used for both network communication and on-chain storage.
+ */
 public class TX {
     private String from;
     private int nonce;

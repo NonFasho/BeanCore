@@ -7,6 +7,28 @@ import com.bean_core.crypto.TransactionVerifier;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * The {@code CallManager} class is responsible for parsing and handling the
+ * contents of a CENCALL JSON string. It provides structured access
+ * to the contract name, method, parameters, and caller metadata, along with 
+ * validation and transaction extraction utilities.
+ * 
+ * <p>This class is primarily used by Contract Execution Nodes (CENs) to unpack,
+ * validate, and route incoming smart contract calls submitted as raw JSON.
+ * 
+ * <p>A JSON string compatible with this class can be obtained by calling 
+ * {@code toJsonString()} on a {@code CENCALL} instance.
+ * 
+ * <p>Example usage:
+ * <pre>{@code
+ * CENCALL call = new CENCALL(...);
+ * String json = call.toJsonString();
+ * CallManager cm = new CallManager(json);
+ * if (cm.isSignatureValid()) {
+ *     // Handle the contract call
+ * }
+ * }</pre>
+ */
 public class CallManager {
     private String contractName;
     private String method;
@@ -20,6 +42,11 @@ public class CallManager {
 
         this.contractName = fullCall.get("contract").asText();
         this.method = fullCall.get("method").asText();
+        
+        if (!fullCall.get("params").isTextual()) {
+            throw new IllegalArgumentException("params field must be a JSON string");
+        }
+
         this.paramsRaw = fullCall.get("params").asText(); 
         this.unpackedParams = mapper.readTree(paramsRaw);
     }
