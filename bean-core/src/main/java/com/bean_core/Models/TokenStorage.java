@@ -22,6 +22,14 @@ public class TokenStorage {
         
     }
 
+    //for nft collection and more loose storage 
+    public TokenStorage(String tokenHash, String type, ParamBuilder builder) {
+        this.tokenHash = tokenHash;
+        this.tokenData = builder
+                            .add("type", type)
+                            .build();
+    }
+
     public TokenStorage(String tokenHash, String token, String symbol, double supply, String minter, boolean mintable, boolean open) {
         this.tokenHash = tokenHash;
         long storedToshiSupply = beantoshinomics.toBeantoshi(supply);
@@ -35,6 +43,7 @@ public class TokenStorage {
                                 .build();
 
     }
+
 
     public JsonNode getTokenMetaAsJson() throws Exception {
         ObjectMapper mapper = new ObjectMapper();

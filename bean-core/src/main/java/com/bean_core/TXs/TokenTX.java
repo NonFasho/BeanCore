@@ -28,13 +28,13 @@ public class TokenTX extends TX {
         this.setTxHash(this.generateHash()); 
     }
 
-    //TODO: fix this here and on network to reflect change, dont need the contractNonce... also change CEN references to contract because its the contract that will be signing TX not the cen 
-    public TokenTX(String CEN, String CENpublicKeyHex, String to, double amount, int CENnonce, String tokenHash, long gasFee, String caller, String callHash, String callerPublicKey, String callSignature, int callerLayer2Nonce, String contract, String callMethod, String contractHash) {
-        this.setFrom(CEN);
-        this.setPublicKeyHex(CENpublicKeyHex);
+     
+    public TokenTX(String contractAddress, String contractPubKeyHex, String to, double amount, String tokenHash, long gasFee, String caller, String callHash, String callerPublicKey, String callSignature, int callerLayer2Nonce, String contract, String callMethod, String contractHash) {
+        this.setFrom(contractAddress);
+        this.setPublicKeyHex(contractPubKeyHex);
         this.setTo(to);
         this.setAmount(amount);
-        this.setNonce(CENnonce);
+        //this.setNonce(CENnonce);
         this.setTimeStamp(System.currentTimeMillis());
         this.setType("token");
         this.setGasFee(gasFee);

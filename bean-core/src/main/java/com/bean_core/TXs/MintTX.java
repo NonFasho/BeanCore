@@ -15,6 +15,7 @@ public class MintTX extends TX {
         this.setType("mint");
     }
 
+    //Initial Mint for fungible tokens 
     public MintTX(String from, String publicKeyHex, String to, double amount, int nonce, String token, double supply, String symbol) {
         this.setFrom(from);
         this.setPublicKeyHex(publicKeyHex);
@@ -40,6 +41,7 @@ public class MintTX extends TX {
         
     }
 
+    //Mint more of a token with open Mint
     public MintTX(String from, String publicKeyHex, String to, double amount, int nonce, String tokenHash) {
         this.setFrom(from);
         this.setPublicKeyHex(publicKeyHex);
@@ -57,24 +59,44 @@ public class MintTX extends TX {
             .add("amount", amount);
     }
 
-    //working on NFT set up 
-    // public MintTX(String from, String publicKeyHex, String to, String tokenId, int nonce, String tokenHash, long gasFee, String meta) {
-    //     this.setFrom(from);
-    //     this.setPublicKeyHex(publicKeyHex);
-    //     this.setTo(to);
-    //     this.setAmount(1);
-    //     this.setNonce(nonce);
-    //     this.setTimeStamp(System.currentTimeMillis());
-    //     this.setType("mint");
-    //     this.setGasFee(gasFee);
-    //     this.setTxHash(this.generateHash());
+    //Mint NFT
+    public MintTX(String from, String publicKeyHex, String to, String tokenId, int nonce, String tokenHash, long gasFee, String meta) {
+        this.setFrom(from);
+        this.setPublicKeyHex(publicKeyHex);
+        this.setTo(to);
+        this.setAmount(1);
+        this.setNonce(nonce);
+        this.setTimeStamp(System.currentTimeMillis());
+        this.setType("mint");
+        this.setGasFee(gasFee);
+        this.setTxHash(this.generateHash());
 
-    //     this.paramBuilder
-    //         .add("mode", "NFT")
-    //         .add("tokenHash", tokenHash)
-    //         .add("tokenId", tokenId);
-    //         .add("meta",)
-    // }
+        this.paramBuilder
+            .add("mode", "NFT")
+            .add("tokenHash", tokenHash)
+            .add("tokenId", tokenId)
+            .add("meta",meta);
+    }
+
+    //Mint A NFT collection
+    public MintTX(String creator, String tokenHash, int maxSupply, boolean publicMint, boolean immutableMeta, long gasFee) {
+        this.setFrom(creator);
+        this.setTo("BEANX:0xCREATECOLLECTION");
+        this.setType("nft-init");
+        this.setAmount(0);
+        this.setGasFee(gasFee);
+        this.setTimeStamp(System.currentTimeMillis());
+
+        this.paramBuilder
+            .add("tokenHash", tokenHash)
+            .add("maxSupply", maxSupply)
+            .add("publicMint", publicMint)
+            .add("immutableMeta", immutableMeta);
+
+        this.setMeta(this.paramBuilder.build());
+        this.setTxHash(this.generateHash());
+    }
+        
 
     public void capSupply() {
         this.paramBuilder.add("capped", true);
