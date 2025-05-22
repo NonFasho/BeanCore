@@ -34,7 +34,6 @@ public class TokenTX extends TX {
         this.setPublicKeyHex(contractPubKeyHex);
         this.setTo(to);
         this.setAmount(amount);
-        //this.setNonce(CENnonce);
         this.setTimeStamp(System.currentTimeMillis());
         this.setType("token");
         this.setGasFee(gasFee);
@@ -51,6 +50,33 @@ public class TokenTX extends TX {
             .add("contract", contract)
             .add("contractHash", contractHash)
             .add("callMethod", callMethod);
+
+        this.setMeta(this.paramBuilder.build());
+        this.setTxHash(this.generateHash()); 
+    }
+
+    public TokenTX(String contractAddress, String contractPubKeyHex, String to, double amount, String tokenHash, long gasFee, String caller, String callHash, String callerPublicKey, String callSignature, int callerLayer2Nonce, String contract, String callMethod, String contractHash, String executeMethod) {
+        this.setFrom(contractAddress);
+        this.setPublicKeyHex(contractPubKeyHex);
+        this.setTo(to);
+        this.setAmount(amount);
+        this.setTimeStamp(System.currentTimeMillis());
+        this.setType("token");
+        this.setGasFee(gasFee);
+
+        this.paramBuilder
+            .add("isCEN", true)
+            .add("caller", caller)
+            .add("callHash", callHash)
+            .add("callerPublicKey", callerPublicKey)
+            .add("callerLayer2Nonce", callerLayer2Nonce)
+            .add("callSignature", callSignature)
+            .add("tokenHash", tokenHash)
+            .add("amount", amount)
+            .add("contract", contract)
+            .add("contractHash", contractHash)
+            .add("callMethod", callMethod)
+            .add("execute", executeMethod);
 
         this.setMeta(this.paramBuilder.build());
         this.setTxHash(this.generateHash()); 

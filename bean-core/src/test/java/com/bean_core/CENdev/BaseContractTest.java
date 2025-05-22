@@ -10,6 +10,12 @@ public class BaseContractTest {
     static class DummyContract implements BaseContract {
         boolean called = false;
         String methodReceived = null;
+        boolean initialized = false;
+
+        @Override
+        public void init() {
+            initialized = true;
+        }
 
         @Override
         public void execute(CENCALL call) {
@@ -22,6 +28,10 @@ public class BaseContractTest {
     public void testExecuteMethodIsCalled() {
         DummyContract contract = new DummyContract();
 
+        // Simulate initialization
+        contract.init();
+        assertTrue(contract.initialized, "init() should have been called.");
+
         // Create a dummy CENCALL
         CENCALL call = new CENCALL();
         call.setMethod("testMethod");
@@ -33,3 +43,4 @@ public class BaseContractTest {
         assertEquals("testMethod", contract.methodReceived, "Method name should match the test input.");
     }
 }
+

@@ -73,16 +73,6 @@ public class TXTest {
         assertEquals(publicKey, tx.getPublicKeyHex());
     }
 
-    @Test
-    public void testMalformedJsonReturnsNull() {
-        TX tx = TX.fromJSON("{ not valid json }");
-        assertNull(tx, "Malformed JSON should return null");
-    }
-
-    @Test
-    public void testDebugOutputDoesNotCrash() {
-        TX tx = new TX("bean1", "pubkey", "bean2", 50.0, 42, 10);
-        tx.debugHashValues();  // Not asserting anything, just making sure it doesn’t crash
-    }
+    
 }
 

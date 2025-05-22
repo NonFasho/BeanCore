@@ -46,8 +46,8 @@ public class TX {
         this.amount = amount;
         this.timeStamp = System.currentTimeMillis();
         this.nonce = nonce;
-        this.txHash = generateHash();
         this.gasFee = gasFee;
+        this.txHash = generateHash();
     }
 
     public String getFrom() {return from;}
@@ -118,7 +118,7 @@ public class TX {
     
             return tx;
         } catch (Exception e) {
-            System.out.println("❌ Failed to parse TX JSON: " + e.getMessage());
+            System.out.println("Failed to parse TX JSON: " + e.getMessage());
             return null;
         }
     }
